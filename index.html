@@ -11,52 +11,71 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400;1,500&family=Zen+Old+Mincho:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --osk-void:#0a0a0f; --osk-void-deep:#06060a; --osk-surface:#15141a; --osk-surface-hi:#1c1a23;
-  --osk-gold:#d4a853; --osk-gold-soft:rgba(212,168,83,0.12); --osk-gold-edge:rgba(212,168,83,0.45);
-  --osk-fg-1:#e8e0d0; --osk-fg-2:#b8b0a0; --osk-fg-3:#807868; --osk-dim:#5a5448;
-  --osk-border:rgba(200,184,160,0.06); --osk-border-hover:rgba(212,168,83,0.20);
-  --osk-font-sans:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Sans","Yu Gothic Medium","Yu Gothic",system-ui,sans-serif;
-  --osk-font-serif:"Cormorant Garamond","Times New Roman","游明朝体","Yu Mincho","Hiragino Mincho ProN",serif;
-  --osk-font-mono:"JetBrains Mono","SF Mono","Menlo","Consolas",monospace;
+  --paper:#f1ebdd; --paper-deep:#e7dfcc; --card:#fffdf9; --card-edge:rgba(90,80,60,0.14);
+  --ink:#2d2823; --ink-2:#6f665a; --ink-3:#9a9082; --dim:#b3a892;
+  --gold:#b5852b; --gold-soft:rgba(181,133,43,0.12); --gold-edge:rgba(181,133,43,0.5);
+  --grid:rgba(92,82,60,0.055);
+  --f-sans:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Sans","Yu Gothic Medium","Yu Gothic",system-ui,sans-serif;
+  --f-serif:"Cormorant Garamond","Zen Old Mincho","游明朝体","Yu Mincho","Hiragino Mincho ProN",serif;
+  --f-mono:"JetBrains Mono","SF Mono","Menlo","Consolas",monospace;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
-html,body{background:var(--osk-void);color:var(--osk-fg-1);font-family:var(--osk-font-sans);line-height:1.7;letter-spacing:0.01em;-webkit-font-smoothing:antialiased;}
-body{background:radial-gradient(ellipse at 50% -10%,var(--osk-surface) 0%,var(--osk-void) 55%,var(--osk-void-deep) 100%);min-height:100vh;}
-.wrap{max-width:720px;margin:0 auto;padding:0 24px;}
-.caption{font-family:var(--osk-font-serif);font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--osk-dim);}
-.hero{padding:80px 0 48px;text-align:center;}
-.hero h1{font-family:var(--osk-font-serif);font-style:italic;font-weight:300;line-height:1.08;letter-spacing:0.03em;font-size:2.9rem;margin:16px 0 14px;}
-.hero .sub{color:var(--osk-fg-2);font-size:1.05rem;max-width:34ch;margin:0 auto;}
-section{padding:48px 0;border-bottom:1px solid var(--osk-border);}
-h2{font-family:var(--osk-font-serif);font-style:italic;font-weight:400;font-size:1.6rem;letter-spacing:0.02em;color:var(--osk-gold);margin-bottom:8px;}
-.lead{color:var(--osk-fg-3);font-size:0.92rem;margin-bottom:24px;}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;}
-.card{background:var(--osk-surface);border:1px solid var(--osk-border);border-radius:14px;padding:22px;display:flex;flex-direction:column;}
-.card .dom{font-family:var(--osk-font-mono);font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--osk-dim);}
-.card .t{font-family:var(--osk-font-serif);font-style:italic;font-size:1.45rem;color:var(--osk-fg-1);margin:6px 0 8px;line-height:1.2;}
-.card .d{font-size:0.95rem;color:var(--osk-fg-2);flex:1;}
-.card .acts{display:flex;gap:10px;margin-top:16px;align-items:center;}
-.linklike{font-size:0.82rem;color:var(--osk-fg-3);text-decoration:none;border-bottom:1px solid var(--osk-border);}
-.linklike:hover{color:var(--osk-gold);border-color:var(--osk-gold-edge);}
-.x{font-size:0.82rem;letter-spacing:0.06em;color:var(--osk-fg-1);background:transparent;border:1px solid var(--osk-gold-edge);border-radius:8px;padding:7px 16px;cursor:pointer;transition:background .15s,color .15s;}
-.x:hover{background:var(--osk-gold-soft);color:var(--osk-gold);}
-textarea{width:100%;min-height:96px;background:var(--osk-void-deep);color:var(--osk-fg-1);border:1px solid var(--osk-border);border-radius:12px;padding:14px;font-family:var(--osk-font-sans);font-size:1rem;line-height:1.6;resize:vertical;}
-textarea:focus{outline:none;border-color:var(--osk-gold-edge);}
+html,body{background:var(--paper);color:var(--ink);font-family:var(--f-sans);line-height:1.7;letter-spacing:0.01em;-webkit-font-smoothing:antialiased;}
+body{
+  min-height:100vh;
+  background-color:var(--paper);
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 27px, var(--grid) 27px 28px),
+    repeating-linear-gradient(90deg, transparent 0 27px, var(--grid) 27px 28px),
+    radial-gradient(ellipse at 50% -8%, #fbf7ee 0%, var(--paper) 50%, var(--paper-deep) 100%);
+}
+.wrap{max-width:740px;margin:0 auto;padding:0 22px;}
+.caption{font-family:var(--f-serif);font-size:0.72rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--dim);}
+.hero{padding:76px 0 44px;text-align:center;}
+.hero h1{font-family:var(--f-serif);font-style:italic;font-weight:500;line-height:1.08;letter-spacing:0.02em;font-size:3rem;margin:14px 0 14px;color:var(--ink);}
+.hero .sub{color:var(--ink-2);font-size:1.05rem;max-width:34ch;margin:0 auto;}
+section{padding:44px 0;}
+section + section{border-top:1px dashed var(--card-edge);}
+h2{font-family:var(--f-serif);font-style:italic;font-weight:500;font-size:1.65rem;letter-spacing:0.02em;color:var(--gold);margin-bottom:6px;}
+.lead{color:var(--ink-3);font-size:0.92rem;margin-bottom:26px;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px;}
+.card{
+  position:relative;background:linear-gradient(168deg, var(--card) 52%, var(--ac-soft, #fffdf9));
+  border:1px solid var(--card-edge);border-top:4px solid var(--ac,#c9b27a);border-radius:4px;
+  padding:22px 22px 20px;display:flex;flex-direction:column;
+  box-shadow:0 2px 7px rgba(60,50,35,0.10), 0 9px 26px rgba(60,50,35,0.06);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.card:nth-child(odd){transform:rotate(-0.75deg);}
+.card:nth-child(even){transform:rotate(0.7deg);}
+.card:hover{transform:rotate(0) translateY(-4px);box-shadow:0 5px 14px rgba(60,50,35,0.14), 0 16px 38px rgba(60,50,35,0.10);}
+.card .dom{font-family:var(--f-mono);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:#fff;background:var(--ac,#c9b27a);display:inline-block;padding:3px 9px;border-radius:3px;align-self:flex-start;}
+.card .t{font-family:var(--f-serif);font-style:italic;font-size:1.5rem;color:var(--ink);margin:11px 0 8px;line-height:1.2;}
+.card .d{font-size:0.95rem;color:var(--ink-2);flex:1;}
+.card .acts{display:flex;gap:12px;margin-top:18px;align-items:center;}
+.linklike{font-size:0.82rem;color:var(--ink-3);text-decoration:none;border-bottom:1px solid var(--card-edge);}
+.linklike:hover{color:var(--ac,var(--gold));border-color:var(--ac,var(--gold-edge));}
+.xbtn{font-size:0.8rem;letter-spacing:0.05em;color:#fff;background:var(--ac,#c9b27a);border:none;border-radius:6px;padding:7px 15px;cursor:pointer;transition:filter .15s, transform .12s;}
+.xbtn:hover{filter:brightness(0.93);}
+.xbtn:active{transform:scale(0.97);}
+.panel{background:var(--card);border:1px solid var(--card-edge);border-radius:6px;padding:22px;box-shadow:0 2px 7px rgba(60,50,35,0.08);}
+textarea{width:100%;min-height:96px;background:#fcfaf3;color:var(--ink);border:1px solid var(--card-edge);border-radius:8px;padding:13px;font-family:var(--f-sans);font-size:1rem;line-height:1.6;resize:vertical;}
+textarea:focus{outline:none;border-color:var(--gold-edge);box-shadow:0 0 0 3px var(--gold-soft);}
 .post-row{display:flex;justify-content:space-between;align-items:center;margin-top:12px;gap:12px;flex-wrap:wrap;}
-.count{font-family:var(--osk-font-mono);font-size:0.7rem;color:var(--osk-dim);}
-.btn{font-family:var(--osk-font-sans);font-size:0.95rem;letter-spacing:0.04em;color:var(--osk-fg-1);background:transparent;border:1px solid var(--osk-gold-edge);border-radius:10px;padding:12px 28px;cursor:pointer;transition:background .15s,color .15s;}
-.btn:hover{background:var(--osk-gold-soft);color:var(--osk-gold);}
-.tag{font-family:var(--osk-font-mono);font-size:0.72rem;color:var(--osk-gold);letter-spacing:0.08em;}
-.see{display:inline-block;margin-top:8px;color:var(--osk-fg-2);border-bottom:1px solid var(--osk-gold-edge);text-decoration:none;font-size:0.95rem;}
-.see:hover{color:var(--osk-gold);}
-.note{font-size:0.82rem;color:var(--osk-dim);margin-top:14px;line-height:1.6;}
-footer{padding:36px 0 60px;text-align:center;}
-footer .c{font-family:var(--osk-font-serif);font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--osk-dim);}
-a{color:var(--osk-fg-2);text-decoration:none;}a:hover{color:var(--osk-gold);}
-@media(max-width:520px){.hero h1{font-size:2.2rem;}}
+.count{font-family:var(--f-mono);font-size:0.7rem;color:var(--dim);}
+.btn{font-family:var(--f-sans);font-size:0.95rem;letter-spacing:0.04em;color:var(--ink);background:var(--gold-soft);border:1px solid var(--gold-edge);border-radius:9px;padding:11px 26px;cursor:pointer;transition:background .15s,color .15s;}
+.btn:hover{background:var(--gold);color:#fff;}
+.tag{font-family:var(--f-mono);font-size:0.72rem;color:var(--gold);letter-spacing:0.06em;}
+.see{display:inline-block;margin-top:6px;color:var(--ink);border-bottom:2px solid var(--gold-edge);text-decoration:none;font-size:0.98rem;}
+.see:hover{color:var(--gold);}
+.note{font-size:0.82rem;color:var(--dim);margin-top:13px;line-height:1.6;}
+footer{padding:40px 0 60px;text-align:center;}
+footer .c{font-family:var(--f-serif);font-size:0.72rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--dim);}
+a{color:var(--ink-2);text-decoration:none;}a:hover{color:var(--gold);}
+@media(max-width:520px){.hero h1{font-size:2.3rem;}}
 </style>
 </head>
 <body>
@@ -70,17 +89,19 @@ a{color:var(--osk-fg-2);text-decoration:none;}a:hover{color:var(--osk-gold);}
 
   <section>
     <h2>ぼくの種</h2>
-    <p class="lead">発芽しはじめたアイデアたち。気に入ったら、そのままXで広めてOK。</p>
+    <p class="lead">発芽しはじめたアイデアたち。色は領域の個性。気に入ったら、そのままXで広めてOK。</p>
     <div class="grid" id="seeds"></div>
   </section>
 
   <section>
     <h2>あなたの“あったらいいな”</h2>
     <p class="lead">思いついた種を書いて、Xに放つ。投稿もいいねも <span class="tag">#あったらいいな</span> に間借りする。</p>
-    <textarea id="idea" placeholder="例：抹茶の甘さを0〜1で選べたらいいな…"></textarea>
-    <div class="post-row">
-      <span class="count" id="count">0 字</span>
-      <button class="btn" id="postBtn">Xに投稿する</button>
+    <div class="panel">
+      <textarea id="idea" placeholder="例：抹茶の甘さを0〜1で選べたらいいな…"></textarea>
+      <div class="post-row">
+        <span class="count" id="count">0 字</span>
+        <button class="btn" id="postBtn">Xに投稿する</button>
+      </div>
     </div>
     <p class="note">送信先はX（旧Twitter）。このページはあなたの文章をサーバーに保存しません（下書きだけブラウザに残します）。</p>
   </section>
@@ -102,31 +123,15 @@ a{color:var(--osk-fg-2);text-decoration:none;}a:hover{color:var(--osk-gold);}
   var SITE='https://osakenpiro.github.io/attara-iina/';
   var TAGS=' #あったらいいな #全人類UX改善';
   var SEEDS=[
-    {dom:'飲料',t:'あまっちゃ／にがっちゃ',d:'甘いか苦いか分からない抹茶問題を解決。甘さを0〜1のFloatで選ぶ。',link:'https://osakenpiro.github.io/amaccha-nigaccha/',share:'甘いか苦いか分からない抹茶問題を解決する「あまっちゃ／にがっちゃ」。甘さを0〜1で選べる。'},
-    {dom:'ボードゲーム',t:'ドラコロバトル',d:'運（ダイス）をBoolean勝敗でなく、Floatで“剥がす”ボードゲーム。',link:'',share:'運をFloatで“剥がす”ボードゲーム「ドラコロバトル」。運ゲーの理不尽を設計でほどく。'},
-    {dom:'世界設定',t:'魔法力保存の総則',d:'魔法にも保存則。総量は一定で配分だけ動く——Float総量保存の魔法体系。',link:'',share:'魔法にも物理法則を。魔法力のFloat総量保存という世界設定「魔法力保存の総則」。'},
-    {dom:'エッセイ',t:'普通教という宗教',d:'“普通であれ”という強迫を、ひとつの宗教として解剖する。普通をFloatに溶かす。',link:'',share:'“普通であれ”を宗教として解剖する「普通教」。普通／異常のBooleanをFloatに溶かす。'}
+    {dom:'飲料',ac:'#6f9b2f',t:'あまっちゃ／にがっちゃ',d:'甘いか苦いか分からない抹茶問題を解決。甘さを0〜1のFloatで選ぶ。',link:'https://osakenpiro.github.io/amaccha-nigaccha/',share:'甘いか苦いか分からない抹茶問題を解決する「あまっちゃ／にがっちゃ」。甘さを0〜1で選べる。'},
+    {dom:'ボードゲーム',ac:'#d8602f',t:'ドラコロバトル',d:'運（ダイス）をBoolean勝敗でなく、Floatで“剥がす”ボードゲーム。',link:'',share:'運をFloatで“剥がす”ボードゲーム「ドラコロバトル」。運ゲーの理不尽を設計でほどく。'},
+    {dom:'世界設定',ac:'#7a6fd6',t:'魔法力保存の総則',d:'魔法にも保存則。総量は一定で配分だけ動く——Float総量保存の魔法体系。',link:'',share:'魔法にも物理法則を。魔法力のFloat総量保存という世界設定「魔法力保存の総則」。'},
+    {dom:'エッセイ',ac:'#3f86c4',t:'普通教という宗教',d:'“普通であれ”という強迫を、ひとつの宗教として解剖する。普通をFloatに溶かす。',link:'',share:'“普通であれ”を宗教として解剖する「普通教」。普通／異常のBooleanをFloatに溶かす。'}
   ];
+  function hexRgba(h,a){var n=parseInt(h.slice(1),16);return 'rgba('+(n>>16&255)+','+(n>>8&255)+','+(n&255)+','+a+')';}
   function xurl(txt){return 'https://twitter.com/intent/tweet?text='+encodeURIComponent(txt+TAGS)+'&url='+encodeURIComponent(SITE);}
   var box=document.getElementById('seeds');
   SEEDS.forEach(function(s){
     var c=document.createElement('div'); c.className='card';
-    var linkHtml=s.link?'<a class="linklike" href="'+s.link+'" target="_blank" rel="noopener">見にいく →</a>':'';
-    c.innerHTML='<div class="dom">'+s.dom+'</div><div class="t">'+s.t+'</div><div class="d">'+s.d+'</div>'+
-      '<div class="acts">'+linkHtml+'<button class="x">Xで広める</button></div>';
-    c.querySelector('.x').addEventListener('click',function(){window.open(xurl(s.share),'_blank','noopener');});
-    box.appendChild(c);
-  });
-  var KEY='attara-iina-draft';
-  var ta=document.getElementById('idea'), cnt=document.getElementById('count');
-  try{var d=localStorage.getItem(KEY); if(d){ta.value=d;}}catch(e){}
-  function refresh(){cnt.textContent=ta.value.length+' 字'; try{localStorage.setItem(KEY,ta.value);}catch(e){}}
-  ta.addEventListener('input',refresh); refresh();
-  document.getElementById('postBtn').addEventListener('click',function(){
-    var v=ta.value.trim(); if(!v){ta.focus();return;}
-    window.open(xurl(v),'_blank','noopener');
-  });
-})();
-</script>
-</body>
-</html>
+    c.style.setProperty('--ac',s.ac);
+    c.style.setProper

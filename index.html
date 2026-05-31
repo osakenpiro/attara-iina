@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>あったらいいな図鑑 — みんなの“あんなこといいな”</title>
+<meta property="og:title" content="あったらいいな図鑑 — みんなの“あんなこといいな”">
+<meta property="og:description" content="“あんなこといいな、できたらいいな”を、みんなで投稿して広める。いいねも投稿もXに間借り。#あったらいいな #全人類UX改善">
+<meta property="og:url" content="https://osakenpiro.github.io/attara-iina/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --osk-void:#0a0a0f; --osk-void-deep:#06060a; --osk-surface:#15141a; --osk-surface-hi:#1c1a23;
+  --osk-gold:#d4a853; --osk-gold-soft:rgba(212,168,83,0.12); --osk-gold-edge:rgba(212,168,83,0.45);
+  --osk-fg-1:#e8e0d0; --osk-fg-2:#b8b0a0; --osk-fg-3:#807868; --osk-dim:#5a5448;
+  --osk-border:rgba(200,184,160,0.06); --osk-border-hover:rgba(212,168,83,0.20);
+  --osk-font-sans:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Sans","Yu Gothic Medium","Yu Gothic",system-ui,sans-serif;
+  --osk-font-serif:"Cormorant Garamond","Times New Roman","游明朝体","Yu Mincho","Hiragino Mincho ProN",serif;
+  --osk-font-mono:"JetBrains Mono","SF Mono","Menlo","Consolas",monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{background:var(--osk-void);color:var(--osk-fg-1);font-family:var(--osk-font-sans);line-height:1.7;letter-spacing:0.01em;-webkit-font-smoothing:antialiased;}
+body{background:radial-gradient(ellipse at 50% -10%,var(--osk-surface) 0%,var(--osk-void) 55%,var(--osk-void-deep) 100%);min-height:100vh;}
+.wrap{max-width:720px;margin:0 auto;padding:0 24px;}
+.caption{font-family:var(--osk-font-serif);font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--osk-dim);}
+.hero{padding:80px 0 48px;text-align:center;}
+.hero h1{font-family:var(--osk-font-serif);font-style:italic;font-weight:300;line-height:1.08;letter-spacing:0.03em;font-size:2.9rem;margin:16px 0 14px;}
+.hero .sub{color:var(--osk-fg-2);font-size:1.05rem;max-width:34ch;margin:0 auto;}
+section{padding:48px 0;border-bottom:1px solid var(--osk-border);}
+h2{font-family:var(--osk-font-serif);font-style:italic;font-weight:400;font-size:1.6rem;letter-spacing:0.02em;color:var(--osk-gold);margin-bottom:8px;}
+.lead{color:var(--osk-fg-3);font-size:0.92rem;margin-bottom:24px;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;}
+.card{background:var(--osk-surface);border:1px solid var(--osk-border);border-radius:14px;padding:22px;display:flex;flex-direction:column;}
+.card .dom{font-family:var(--osk-font-mono);font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--osk-dim);}
+.card .t{font-family:var(--osk-font-serif);font-style:italic;font-size:1.45rem;color:var(--osk-fg-1);margin:6px 0 8px;line-height:1.2;}
+.card .d{font-size:0.95rem;color:var(--osk-fg-2);flex:1;}
+.card .acts{display:flex;gap:10px;margin-top:16px;align-items:center;}
+.linklike{font-size:0.82rem;color:var(--osk-fg-3);text-decoration:none;border-bottom:1px solid var(--osk-border);}
+.linklike:hover{color:var(--osk-gold);border-color:var(--osk-gold-edge);}
+.x{font-size:0.82rem;letter-spacing:0.06em;color:var(--osk-fg-1);background:transparent;border:1px solid var(--osk-gold-edge);border-radius:8px;padding:7px 16px;cursor:pointer;transition:background .15s,color .15s;}
+.x:hover{background:var(--osk-gold-soft);color:var(--osk-gold);}
+textarea{width:100%;min-height:96px;background:var(--osk-void-deep);color:var(--osk-fg-1);border:1px solid var(--osk-border);border-radius:12px;padding:14px;font-family:var(--osk-font-sans);font-size:1rem;line-height:1.6;resize:vertical;}
+textarea:focus{outline:none;border-color:var(--osk-gold-edge);}
+.post-row{display:flex;justify-content:space-between;align-items:center;margin-top:12px;gap:12px;flex-wrap:wrap;}
+.count{font-family:var(--osk-font-mono);font-size:0.7rem;color:var(--osk-dim);}
+.btn{font-family:var(--osk-font-sans);font-size:0.95rem;letter-spacing:0.04em;color:var(--osk-fg-1);background:transparent;border:1px solid var(--osk-gold-edge);border-radius:10px;padding:12px 28px;cursor:pointer;transition:background .15s,color .15s;}
+.btn:hover{background:var(--osk-gold-soft);color:var(--osk-gold);}
+.tag{font-family:var(--osk-font-mono);font-size:0.72rem;color:var(--osk-gold);letter-spacing:0.08em;}
+.see{display:inline-block;margin-top:8px;color:var(--osk-fg-2);border-bottom:1px solid var(--osk-gold-edge);text-decoration:none;font-size:0.95rem;}
+.see:hover{color:var(--osk-gold);}
+.note{font-size:0.82rem;color:var(--osk-dim);margin-top:14px;line-height:1.6;}
+footer{padding:36px 0 60px;text-align:center;}
+footer .c{font-family:var(--osk-font-serif);font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--osk-dim);}
+a{color:var(--osk-fg-2);text-decoration:none;}a:hover{color:var(--osk-gold);}
+@media(max-width:520px){.hero h1{font-size:2.2rem;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="caption">Boolean → Float ／ #全人類UX改善</div>
+    <h1>あったらいいな図鑑</h1>
+    <p class="sub">あんなこといいな、できたらいいな。<br>その“種”を、みんなで持ち寄る場所。</p>
+  </div>
+
+  <section>
+    <h2>ぼくの種</h2>
+    <p class="lead">発芽しはじめたアイデアたち。気に入ったら、そのままXで広めてOK。</p>
+    <div class="grid" id="seeds"></div>
+  </section>
+
+  <section>
+    <h2>あなたの“あったらいいな”</h2>
+    <p class="lead">思いついた種を書いて、Xに放つ。投稿もいいねも <span class="tag">#あったらいいな</span> に間借りする。</p>
+    <textarea id="idea" placeholder="例：抹茶の甘さを0〜1で選べたらいいな…"></textarea>
+    <div class="post-row">
+      <span class="count" id="count">0 字</span>
+      <button class="btn" id="postBtn">Xに投稿する</button>
+    </div>
+    <p class="note">送信先はX（旧Twitter）。このページはあなたの文章をサーバーに保存しません（下書きだけブラウザに残します）。</p>
+  </section>
+
+  <section>
+    <h2>みんなのあったらいいな</h2>
+    <p class="lead">投稿された種は、Xのハッシュタグに集まる。いいね＝Xのいいね。</p>
+    <a class="see" id="seeAll" href="https://twitter.com/search?q=%23%E3%81%82%E3%81%A3%E3%81%9F%E3%82%89%E3%81%84%E3%81%84%E3%81%AA&f=live" target="_blank" rel="noopener">#あったらいいな を見る →</a>
+  </section>
+
+  <footer>
+    <div class="c">osakenpiro ／ Visionium ／ #全人類UX改善</div>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var SITE='https://osakenpiro.github.io/attara-iina/';
+  var TAGS=' #あったらいいな #全人類UX改善';
+  var SEEDS=[
+    {dom:'飲料',t:'あまっちゃ／にがっちゃ',d:'甘いか苦いか分からない抹茶問題を解決。甘さを0〜1のFloatで選ぶ。',link:'https://osakenpiro.github.io/amaccha-nigaccha/',share:'甘いか苦いか分からない抹茶問題を解決する「あまっちゃ／にがっちゃ」。甘さを0〜1で選べる。'},
+    {dom:'ボードゲーム',t:'ドラコロバトル',d:'運（ダイス）をBoolean勝敗でなく、Floatで“剥がす”ボードゲーム。',link:'',share:'運をFloatで“剥がす”ボードゲーム「ドラコロバトル」。運ゲーの理不尽を設計でほどく。'},
+    {dom:'世界設定',t:'魔法力保存の総則',d:'魔法にも保存則。総量は一定で配分だけ動く——Float総量保存の魔法体系。',link:'',share:'魔法にも物理法則を。魔法力のFloat総量保存という世界設定「魔法力保存の総則」。'},
+    {dom:'エッセイ',t:'普通教という宗教',d:'“普通であれ”という強迫を、ひとつの宗教として解剖する。普通をFloatに溶かす。',link:'',share:'“普通であれ”を宗教として解剖する「普通教」。普通／異常のBooleanをFloatに溶かす。'}
+  ];
+  function xurl(txt){return 'https://twitter.com/intent/tweet?text='+encodeURIComponent(txt+TAGS)+'&url='+encodeURIComponent(SITE);}
+  var box=document.getElementById('seeds');
+  SEEDS.forEach(function(s){
+    var c=document.createElement('div'); c.className='card';
+    var linkHtml=s.link?'<a class="linklike" href="'+s.link+'" target="_blank" rel="noopener">見にいく →</a>':'';
+    c.innerHTML='<div class="dom">'+s.dom+'</div><div class="t">'+s.t+'</div><div class="d">'+s.d+'</div>'+
+      '<div class="acts">'+linkHtml+'<button class="x">Xで広める</button></div>';
+    c.querySelector('.x').addEventListener('click',function(){window.open(xurl(s.share),'_blank','noopener');});
+    box.appendChild(c);
+  });
+  var KEY='attara-iina-draft';
+  var ta=document.getElementById('idea'), cnt=document.getElementById('count');
+  try{var d=localStorage.getItem(KEY); if(d){ta.value=d;}}catch(e){}
+  function refresh(){cnt.textContent=ta.value.length+' 字'; try{localStorage.setItem(KEY,ta.value);}catch(e){}}
+  ta.addEventListener('input',refresh); refresh();
+  document.getElementById('postBtn').addEventListener('click',function(){
+    var v=ta.value.trim(); if(!v){ta.focus();return;}
+    window.open(xurl(v),'_blank','noopener');
+  });
+})();
+</script>
+</body>
+</html>
